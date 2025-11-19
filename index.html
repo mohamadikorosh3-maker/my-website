@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --bg-color-light: linear-gradient(135deg, #f3ec78, #af4261);
+            --bg-color-dark: linear-gradient(135deg, #232526, #414345);
+            --card-bg-light: rgba(255, 255, 255, 0.3);
+            --card-bg-dark: rgba(0, 0, 0, 0.5);
+            --text-color-light: #000;
+            --text-color-dark: #fff;
+        }
+
+        body {
+            padding-top: 56px; /* Offset for fixed navbar */
+            scroll-behavior: smooth;
+            background: var(--bg-color-light); /* Day mode background by default */
+            color: var(--text-color-light);
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        .nav-link {
+            cursor: pointer;
+        }
+
+        .card {
+            backdrop-filter: blur(10px);
+            background: var(--card-bg-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .progress-bar {
+            transition: width 0.2s ease;
+        }
+
+        h2 {
+            margin-top: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Toggle Button */
+        .toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.3s;
+        }
+
+        .toggle-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#about"><i class="fas fa-id-card"></i> My Resume</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" onclick="scrollToSection('about')"><i class="fas fa-user"></i> About</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToSection('projects')"><i class="fas fa-briefcase"></i> Projects</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToSection('skills')"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToSection('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="container mt-5">
+        <h2><i class="fas fa-user-circle"></i> About Me</h2>
+        <p class="lead">I'm a passionate developer focused on creating dynamic and responsive web solutions with a modern touch. I thrive in collaborative environments where I can contribute to impactful projects.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mt-5">
+        <h2><i class="fas fa-tasks"></i> Projects</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Project Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-project-diagram"></i> Project 1</h5>
+                        <p class="card-text">An innovative project that features an integrated solution for modern web applications.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#projectModal1">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more project cards here -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mt-5">
+        <h2><i class="fas fa-tools"></i> Skills</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h5><i class="fab fa-html5"></i> HTML</h5>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                </div>
+                <h5><i class="fab fa-css3-alt"></i> CSS</h5>
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                </div>
+                <h5><i class="fab fa-js-square"></i> JavaScript</h5>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                </div>
+                <!-- Add more skills and progress bars as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5 mb-5">
+        <h2><i class="fas fa-envelope-open-text"></i> Contact Me</h2>
+        <p class="lead">I'm interested in freelance opportunities. Please feel free to get in touch if you have a project in mind or if you just want to connect.</p>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel1"><i class="fas fa-info-circle"></i> Project 1 Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This project involved implementing advanced web technologies to create a seamless user experience...</p>
+                    <!-- Add more details about the project -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day/Night Toggle Button -->
+    <button class="toggle-button" onclick="toggleTheme()">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.toggle-button i');
+            let isLight = body.style.getPropertyValue('--bg-color-dark') === 'var(--bg-color-dark)' ? false : true;
+            body.style.setProperty('--bg-color-light', isLight ? 'var(--bg-color-dark)' : 'var(--bg-color-light)');
+            body.style.setProperty('--text-color-light', isLight ? '#fff' : '#000');
+            body.style.setProperty('--card-bg-light', isLight ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.3)');
+            icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    </script>
+</body>
+</html>
